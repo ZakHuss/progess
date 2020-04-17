@@ -1,0 +1,15 @@
+<% if @task.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <h5>Fix these errors to proceed:</h5>
+  <ul>
+    <% @task.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= simple_form_for @task do |f| %>
+<%= f.input :content, label: false %>
+<%= f.button :submit, "Create", class: "btn btn-success btn-lg px-5" %>
+<% end %>
