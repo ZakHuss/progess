@@ -1,7 +1,20 @@
 <h1>List of all tasks</h1>
 
-<ul>
+<p>
+  <%= link_to "Create Task", new_task_path %>
+</p>
+
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th colspan="2">Actions</th>
+  </tr>
   <% @tasks.each do |task| %>
-  <li><%= task.content%></li> Created at: <%= task.created_at %>
+  <tr>
+    <td><%= link_to task.content, task_path(task) %></td>
+    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+    <td><%= link_to "Delete", task_path(task), method: :delete %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
