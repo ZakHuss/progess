@@ -11,5 +11,6 @@
 
 <%= simple_form_for @task do |f| %>
 <%= f.input :content, label: false %>
+<%= f.input :status %>
 <%= f.button :submit, class: "btn btn-success px-4" %>
 <% end %>

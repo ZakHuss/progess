@@ -1,18 +1,55 @@
-<h1>List of all tasks</h1>
-
+<h1>To Do's</h1>
 <p>
   <%= link_to "Create Task", new_task_path %>
 </p>
 
-
 <table>
   <tr>
     <th>Task</th>
+    <th>Status</th>
     <th colspan="2">Actions</th>
+    <th></th>
   </tr>
-  <% @tasks.each do |task| %>
+  <% @to_dos.each do |task| %>
   <tr>
     <td><%= link_to task.content, task_path(task) %></td>
+    <td><%= task.status %></td>
+    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+    <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h1>In Progress</h1>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Status</th>
+    <th colspan="2">Actions</th>
+    <th></th>
+  </tr>
+  <% @in_progress.each do |task| %>
+  <tr>
+    <td><%= link_to task.content, task_path(task) %></td>
+    <td><%= task.status %></td>
+    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+    <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h1>Finished</h1>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Status</th>
+    <th colspan="2">Actions</th>
+    <th></th>
+  </tr>
+  <% @finished.each do |task| %>
+  <tr>
+    <td><%= link_to task.content, task_path(task) %></td>
+    <td><%= task.status %></td>
     <td><%= link_to "Edit", edit_task_path(task) %> |</td>
     <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
   </tr>
