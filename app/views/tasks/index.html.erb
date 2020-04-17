@@ -1,0 +1,7 @@
+<h1>List of all tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li><%= task.content%></li> Created at: <%= task.created_at %>
+  <% end %>
+</ul>

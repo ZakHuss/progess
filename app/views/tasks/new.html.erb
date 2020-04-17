@@ -1,0 +1,6 @@
+<h2>Create a new task</h2>
+
+<%= simple_form_for @task do |f| %>
+<%= f.input :content, label: false %>
+<%= f.button :submit, "Create", class: "btn btn-success btn-lg px-5" %>
+<% end %>
