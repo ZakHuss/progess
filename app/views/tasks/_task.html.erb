@@ -1,0 +1,46 @@
+<div class="card my-1">
+  <div class="card-body">
+    <div class="card-title">
+      <div class="row arrows">
+
+
+
+
+        <% if task.status == "doing" %>
+        <div class="col-1">
+          <%= link_to '<i class="fa fa-angle-double-left fa-lg fa-lg custom-color pl-1"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put %>
+        </div>
+
+        <div class="col-10">
+          <p><%= link_to task.content, task_path(task) %></p>
+        </div>
+
+        <div class="col-1">
+          <%= link_to '<i class="fa fa-angle-double-right fa-lg custom-color"></i>'.html_safe, change_task_path(task, status: 'done'), method: :put %>
+        </div>
+
+        <% elsif task.status == 'to-do' %>
+        <div class="col-11">
+          <p><%= link_to task.content, task_path(task) %></p>
+        </div>
+        <div class="col-1">
+          <%= link_to '<i class="fa fa-angle-double-right fa-lg custom-color px-2"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
+
+        </div>
+        <% else %>
+        <div class="col-1">
+          <%= link_to '<i class="fa fa-angle-double-left fa-lg custom-color pl-2"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
+        </div>
+        <div class="col-11">
+          <p class=""><%= link_to task.content, task_path(task) %></p>
+        </div>
+        <% end %>
+      </div>
+      <!-- <td><%= task.status %></td>
+      <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+      <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+      <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
+      <!-- </tr> -->
+    </div>
+  </div>
+</div>

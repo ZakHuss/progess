@@ -7,35 +7,7 @@
     <div class="card" style="background-color: #E5EFF5;">
       <div class="card-body">
         <h3>To Do</h3>
-        <% @to_dos.each do |task| %>
-        <div class="card my-1">
-          <div class="card-body">
-            <div class="card-title">
-
-              <!-- <tr>
-              <th>Task</th>
-              <th>Status</th>
-              <th colspan="2">Actions</th>
-              <th></th>
-            </tr> -->
-
-              <!-- <tr> -->
-              <div class="flex-container space-between align-items-center arrows">
-
-                <h5><%= link_to task.content, task_path(task) %></h5>
-                <li>
-                  <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
-                </li>
-              </div>
-              <!-- <td><%= task.status %></td>
-              <td><%= link_to "Edit", edit_task_path(task) %> |</td>
-              <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
-              <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
-              <!-- </tr> -->
-            </div>
-          </div>
-        </div>
-        <% end %>
+        <%= render @to_dos %>
       </div>
     </div>
   </div>
@@ -45,37 +17,38 @@
     <div class="card" style="background-color: #E5EFF5;">
       <div class="card-body">
         <h3>Doing</h3>
-        <% @doings.each do |task| %>
+        <%= render @doings%>
+        <!-- <% @doings.each do |task| %>
         <div class="card my-1">
           <div class="card-body">
-            <div class="card-title">
+            <div class="card-title"> -->
 
-              <!-- <tr>
+        <!-- <tr>
                 <th>Task</th>
                 <th>Status</th>
                 <th colspan="2">Actions</th>
                 <th></th>
               </tr> -->
 
-              <!-- <tr> -->
-              <div class="flex-container space-between align-items-center arrows">
-                <li>
-                  <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put %>
-                </li>
-                <h5 class="mx-5"><%= link_to task.content, task_path(task) %></h5>
-                <li>
-                  <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'done'), method: :put %>
-                </li>
-                <!-- <td><%= task.status %></td>
+        <!-- <tr> -->
+        <!-- <div class="flex-container space-between align-items-center arrows">
+          <li>
+            <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put %>
+          </li>
+          <h5 class="mx-5"><%= link_to task.content, task_path(task) %></h5>
+          <li>
+            <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'done'), method: :put %>
+          </li> -->
+        <!-- <td><%= task.status %></td>
                 <td><%= link_to "Edit", edit_task_path(task) %> |</td>
                 <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
                 <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
-                <!-- </tr> -->
-              </div>
-            </div>
+        <!-- </tr> -->
+        <!-- </div> -->
+        <!-- </div>
           </div>
         </div>
-        <% end %>
+        <% end %> -->
       </div>
     </div>
   </div>
@@ -86,35 +59,36 @@
     <div class="card" style="background-color: #E5EFF5;">
       <div class="card-body">
         <h3>Done</h3>
-        <% @dones.each do |task| %>
+        <%= render @dones %>
+        <!-- <% @dones.each do |task| %>
         <div class="card my-1">
           <div class="card-body">
-            <div class="card-title">
+            <div class="card-title"> -->
 
-              <!-- <tr>
+        <!-- <tr>
                   <th>Task</th>
                   <th>Status</th>
                   <th colspan="2">Actions</th>
                   <th></th>
                 </tr> -->
 
-              <!-- <tr> -->
-              <div class="flex-container align-items-center arrows">
-                <li>
-                  <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
-                </li>
-                <h5 class="ml-3"><%= link_to task.content, task_path(task) %></h5>
+        <!-- <tr> -->
+        <!-- <div class="flex-container align-items-center arrows">
+          <li>
+            <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
+          </li>
+          <h5 class="ml-3"><%= link_to task.content, task_path(task) %></h5>
 
-              </div>
-              <!-- <td><%= task.status %></td>
+        </div> -->
+        <!-- <td><%= task.status %></td>
                   <td><%= link_to "Edit", edit_task_path(task) %> |</td>
                   <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
                   <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
-              <!-- </tr> -->
-            </div>
-          </div>
-        </div>
-        <% end %>
+        <!-- </tr> -->
+        <!-- </div>
+    </div>
+  </div>
+  <% end %> -->
       </div>
     </div>
   </div>
