@@ -1,11 +1,28 @@
-<div class="card my-1">
-  <div class="card-body">
+<div class="card my-2">
+  <div class="card-header">
+    <h6 class="text-info">Created
+      <%= time_ago_in_words(task.created_at) %><%= link_to '<i class="fa fa-pencil float-right"></i>'.html_safe, edit_task_path(task) %>
+    </h6>
+  </div>
+  <div class="body">
+    <p class="card-title"><%= raw(task.content_html) %></p>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group d-flex" role="group">
+      <% if task.status == "doing" %>
+      <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put, class: "btn btn-info w-100"%>
+      <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'done'), method: :put, class: "btn btn-info w-100" %>
+      <% elsif task.status == "to-do" %>
+      <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put, class: "btn btn-info w-100" %>
+      <% else %>
+      <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put, class: "btn btn-info w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- <div class="card-body">
     <div class="card-title">
       <div class="row arrows">
-
-
-
-
         <% if task.status == "doing" %>
         <div class="col-1">
           <%= link_to '<i class="fa fa-angle-double-left fa-lg fa-lg custom-color pl-1"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put %>
@@ -34,13 +51,12 @@
         <div class="col-11">
           <p class=""><%= link_to task.content, task_path(task) %></p>
         </div>
-        <% end %>
-      </div>
-      <!-- <td><%= task.status %></td>
+        <% end %> -->
+<!-- </div>
+ <td><%= task.status %></td>
       <td><%= link_to "Edit", edit_task_path(task) %> |</td>
       <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
       <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
-      <!-- </tr> -->
-    </div>
-  </div>
-</div>
+<!-- </tr> -->
+<!-- </div>
+</div> -->

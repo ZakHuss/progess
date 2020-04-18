@@ -47,6 +47,9 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     autoprefixer-rails (9.7.6)
       execjs
     bcrypt (3.1.13)
@@ -158,10 +161,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redcarpet (3.5.0)
     regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rinku (1.5.1)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
     sass (3.7.4)
@@ -228,6 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_html (= 1.6.4)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
   byebug

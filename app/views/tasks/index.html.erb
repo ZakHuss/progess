@@ -1,10 +1,10 @@
 <p>
-  <%= link_to "Create Task", new_task_path %>
+  <%= link_to "Create Task", new_task_path, class: "btn btn-success btn-lg" %>
 </p>
 
 <div class="row">
   <div class="col-sm-4">
-    <div class="card" style="background-color: #E5EFF5;">
+    <div class="card" style="background-color: #B1C1C9;">
       <div class="card-body">
         <h3>To Do</h3>
         <%= render @to_dos %>
@@ -14,7 +14,7 @@
 
 
   <div class="col-sm-4">
-    <div class="card" style="background-color: #E5EFF5;">
+    <div class="card" style="background-color: #B1C1C9;">
       <div class="card-body">
         <h3>Doing</h3>
         <%= render @doings%>
@@ -56,7 +56,7 @@
 
 
   <div class="col-sm-4">
-    <div class="card" style="background-color: #E5EFF5;">
+    <div class="card" style="background-color: #B1C1C9;">
       <div class="card-body">
         <h3>Done</h3>
         <%= render @dones %>
