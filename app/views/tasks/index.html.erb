@@ -1,57 +1,168 @@
-<h1>To Do's</h1>
 <p>
   <%= link_to "Create Task", new_task_path %>
 </p>
 
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Status</th>
-    <th colspan="2">Actions</th>
-    <th></th>
-  </tr>
-  <% @to_dos.each do |task| %>
-  <tr>
-    <td><%= link_to task.content, task_path(task) %></td>
-    <td><%= task.status %></td>
-    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
-    <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card" style="background-color: #E5EFF5;">
+      <div class="card-body">
+        <h3>To Do</h3>
+        <% @to_dos.each do |task| %>
+        <div class="card my-1">
+          <div class="card-body">
+            <div class="card-title">
 
-<h1>In Progress</h1>
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Status</th>
-    <th colspan="2">Actions</th>
-    <th></th>
-  </tr>
-  <% @in_progress.each do |task| %>
-  <tr>
-    <td><%= link_to task.content, task_path(task) %></td>
-    <td><%= task.status %></td>
-    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
-    <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
-  </tr>
-  <% end %>
-</table>
+              <!-- <tr>
+              <th>Task</th>
+              <th>Status</th>
+              <th colspan="2">Actions</th>
+              <th></th>
+            </tr> -->
 
-<h1>Finished</h1>
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Status</th>
-    <th colspan="2">Actions</th>
-    <th></th>
-  </tr>
-  <% @finished.each do |task| %>
-  <tr>
-    <td><%= link_to task.content, task_path(task) %></td>
-    <td><%= task.status %></td>
-    <td><%= link_to "Edit", edit_task_path(task) %> |</td>
-    <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
-  </tr>
-  <% end %>
-</table>
+              <!-- <tr> -->
+              <div class="flex-container space-between align-items-center arrows">
+
+                <h5><%= link_to task.content, task_path(task) %></h5>
+                <li>
+                  <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
+                </li>
+              </div>
+              <!-- <td><%= task.status %></td>
+              <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+              <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+              <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
+              <!-- </tr> -->
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-4">
+    <div class="card" style="background-color: #E5EFF5;">
+      <div class="card-body">
+        <h3>Doing</h3>
+        <% @doings.each do |task| %>
+        <div class="card my-1">
+          <div class="card-body">
+            <div class="card-title">
+
+              <!-- <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th colspan="2">Actions</th>
+                <th></th>
+              </tr> -->
+
+              <!-- <tr> -->
+              <div class="flex-container space-between align-items-center arrows">
+                <li>
+                  <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'to-do'), method: :put %>
+                </li>
+                <h5 class="mx-5"><%= link_to task.content, task_path(task) %></h5>
+                <li>
+                  <%= link_to '<i class="fa fa-angle-double-right fa-lg"></i>'.html_safe, change_task_path(task, status: 'done'), method: :put %>
+                </li>
+                <!-- <td><%= task.status %></td>
+                <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+                <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+                <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
+                <!-- </tr> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-4">
+    <div class="card" style="background-color: #E5EFF5;">
+      <div class="card-body">
+        <h3>Done</h3>
+        <% @dones.each do |task| %>
+        <div class="card my-1">
+          <div class="card-body">
+            <div class="card-title">
+
+              <!-- <tr>
+                  <th>Task</th>
+                  <th>Status</th>
+                  <th colspan="2">Actions</th>
+                  <th></th>
+                </tr> -->
+
+              <!-- <tr> -->
+              <div class="flex-container align-items-center arrows">
+                <li>
+                  <%= link_to '<i class="fa fa-angle-double-left fa-lg"></i>'.html_safe, change_task_path(task, status: 'doing'), method: :put %>
+                </li>
+                <h5 class="ml-3"><%= link_to task.content, task_path(task) %></h5>
+
+              </div>
+              <!-- <td><%= task.status %></td>
+                  <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+                  <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+                  <td><%= link_to "Start Doing", change_task_path(task, status: 'doing'), method: :put %></td> -->
+              <!-- </tr> -->
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- </div>
+
+      <div class="col-sm-4">
+        <h1>In Progress</h1>
+        <table>
+          <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+            <th></th>
+          </tr>
+          <% @doings.each do |task| %>
+          <tr>
+            <td><%= link_to task.content, task_path(task) %></td>
+            <td><%= task.status %></td>
+            <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+            <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+            <td><%= link_to "Put back in todos", change_task_path(task, status: 'to-do'), method: :put %></td>
+            <td><%= link_to "Mark Finished", change_task_path(task, status: 'done'), method: :put %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+
+      <div class="col-sm-4">
+        <h1>Finished</h1>
+        <table>
+          <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+            <th></th>
+          </tr>
+          <% @dones.each do |task| %>
+          <tr>
+            <td><%= link_to task.content, task_path(task) %></td>
+            <td><%= task.status %></td>
+            <td><%= link_to "Edit", edit_task_path(task) %> |</td>
+            <td><%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Sure?!"} %></td>
+            <td><%= link_to "Put back in Doing", change_task_path(task, status: 'doing'), method: :put %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div> -->
+<!-- </div> -->

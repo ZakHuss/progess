@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: [:show, :edit, :destroy, :update]
+  before_action :set_task, only: [:show, :edit, :destroy, :update, :change_status]
 
   def index
     @to_dos = current_user.tasks.where(status: 'to-do')
-    @in_progress = current_user.tasks.where(status: 'in-progress')
-    @finished = current_user.tasks.where(status: 'finished')
+    @doings = current_user.tasks.where(status: 'doing')
+    @dones = current_user.tasks.where(status: 'done')
   end
 
   def new
@@ -40,6 +40,13 @@ class TasksController < ApplicationController
   def destroy
     if @task.destroy
       flash[:notice] = "Task deleted successfully."
+      redirect_to tasks_path
+    end
+  end
+
+  def change_status
+    if @task.update_attributes(status: params[:status])
+      flash[:notice] = "Task status updated."
       redirect_to tasks_path
     end
   end

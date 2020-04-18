@@ -235,7 +235,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  font-awesome-rails
+  font-awesome-rails (~> 4.7, >= 4.7.0.5)
   hirb (~> 0.7.3)
   jbuilder (~> 2.5)
   jquery-rails
