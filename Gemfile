@@ -22,6 +22,7 @@ gem 'auto_html', '1.6.4'
 
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'hirb', '~> 0.7.3'
 end
@@ -39,4 +40,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :production do 
+  gem 'pg'
+end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
