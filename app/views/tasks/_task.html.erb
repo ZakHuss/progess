@@ -5,7 +5,7 @@
     </h6>
   </div>
   <div class="body">
-    <p class="card-title"><%= raw(task.content_html) %></p>
+    <p class="card-title pl-3"><%= (task.content || raw(task.content_html)).truncate(65, separator: " ") %></p>
   </div>
   <div class="card-footer">
     <div class="btn-group d-flex" role="group">
